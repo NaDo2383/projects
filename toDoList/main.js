@@ -58,6 +58,10 @@ function addToDolist() {
 
 header_task_button.addEventListener("click", addToDolist);
 
+let editBtn = document.querySelector("#edit");
+let checkMarkBtn = document.querySelector("#checkmark");
+let removeBtn = document.querySelector("#remove");
+
 function edit() {
     event.srcElement.parentElement.innerHTML = `<input type="text" class="ToDo_name1" value= "${event.srcElement.previousElementSibling.innerHTML}"></input><i class="fa-solid fa-floppy-disk" onclick="save()"></i><i class="fa-regular fa-square-check icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can icons remove" onclick="removeParent()"></i>`;
 }
@@ -66,6 +70,11 @@ function checkMark() {
 }
 function removeParent() {
     event.srcElement.parentElement.remove();
+    if (document.getElementsByClassName("ToDo").length > 0) {
+        header_left_tasks.innerHTML = `${document.getElementsByClassName("ToDo").length} task left`;
+    } else {
+        header_left_tasks.innerHTML = "";
+    }
 }
 function save() {
     event.srcElement.parentElement.innerHTML = `<div  class="ToDo_name">${event.srcElement.previousElementSibling.value}</div><i class="fa-solid fa-pen icons" onclick="edit()"></i><i class="fa-regular fa-square-check icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can icons remove" onclick="removeParent()"></i>`;
