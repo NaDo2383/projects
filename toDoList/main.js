@@ -34,23 +34,25 @@ header_task.appendChild(header_task_button);
 list.appendChild(list_h1);
 
 function addToDolist() {
-    list_lists.push(header_task_input.value);
-    let ToDo;
-    for (let j = 0; j < list_lists.length - 1; j++) {
-        list.removeChild(list.lastChild);
-    }
-    for (let i = 0; i < list_lists.length; i++) {
-        ToDo = document.createElement("div");
-        ToDo.className = "ToDo"
-        ToDo.innerHTML = `<div class="ToDo_name">${list_lists[i]}</div><i class="fa-solid fa-pen edit${i} icons"></i><i class="fa-regular fa-square-check checkmark${i} icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can remove${i} icons remove"></i>`;
-        list.appendChild(ToDo);
-    }
-    ToDo.class = "ToDo";
-    header_task_input.value = "";
-    if (list_lists.length > 0) {
-        header_left_tasks.innerHTML = `${list_lists.length} task left`;
-    } else {
-        header_left_tasks.innerHTML = "";
+    if (header_task_input.value.length > 0) {
+        list_lists.push(header_task_input.value);
+        let ToDo;
+        for (let j = 0; j < list_lists.length - 1; j++) {
+            list.removeChild(list.lastChild);
+        }
+        for (let i = 0; i < list_lists.length; i++) {
+            ToDo = document.createElement("div");
+            ToDo.className = "ToDo"
+            ToDo.innerHTML = `<div class="ToDo_name">${list_lists[i]}</div><i class="fa-solid fa-pen edit${i} icons"></i><i class="fa-regular fa-square-check checkmark${i} icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can remove${i} icons remove" onclick="removeParent()"></i>`;
+            list.appendChild(ToDo);
+        }
+        ToDo.class = "ToDo";
+        header_task_input.value = "";
+        if (list_lists.length > 0) {
+            header_left_tasks.innerHTML = `${list_lists.length} task left`;
+        } else {
+            header_left_tasks.innerHTML = "";
+        }
     }
 }
 
@@ -71,7 +73,10 @@ function checkMark() {
 //     for (let l = 0; l < list_lists.length; l++) {
 //         delete =
 //         if ()
-        
+
 //     }
 // }
+function removeParent() {
+    event.srcElement.parentElement.remove();
+}
 
