@@ -1,32 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<div id="y" style="width: 75%; left: 146px;" onclick="function1()">
+    par1
+</div>
+<ul id="x" style="width: 75%; left: 146px; display: none;">
+    par2
+</ul>
 
-<head>
-    <meta charset="UTF-8">
-    <title>DOM Manipulation</title>
-</head>
-
-<body>
-    <script type="text/javascript">
-        function gengrid() {
-            var i = 0;
-            var num_stud = 8;
-            var newdiv;
-            var divIdName;
-            for (i = 1; i <= num_stud; i++) {
-                newdiv = document.createElement('div');
-                divIdName = '50' + i;
-                newdiv.setAttribute('id', divIdName);
-                newdiv.innerHTML = '<div id="box' + i + '">Testing 123</div>';
-                document.body.appendChild(newdiv);
-            }
-        }
-        window.onload = function () {
-            gengrid();
-        }
-    </script>
-
-
-</body>
-
-</html>
+<script type="text/javascript">
+    function function1() {
+        console.log(event);
+        event.srcElement.nextElementSibling.style.display = "block";
+    }
+</script>
