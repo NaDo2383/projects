@@ -43,7 +43,7 @@ function addToDolist() {
         for (let i = 0; i < list_lists.length; i++) {
             ToDo = document.createElement("div");
             ToDo.className = "ToDo"
-            ToDo.innerHTML = `<div class="ToDo_name">${list_lists[i]}</div><i class="fa-solid fa-pen edit${i} icons"></i><i class="fa-regular fa-square-check checkmark${i} icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can remove${i} icons remove" onclick="removeParent()"></i>`;
+            ToDo.innerHTML = `<div class="ToDo_name">${list_lists[i]}</div><i class="fa-solid fa-pen edit${i} icons" onclick="edit()"></i><i class="fa-regular fa-square-check checkmark${i} icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can remove${i} icons remove" onclick="removeParent()"></i>`;
             list.appendChild(ToDo);
         }
         ToDo.class = "ToDo";
@@ -58,25 +58,16 @@ function addToDolist() {
 
 header_task_button.addEventListener("click", addToDolist);
 
-let editBtn = document.querySelector("#edit");
-let checkMarkBtn = document.querySelector("#checkmark");
-let removeBtn = document.querySelector("#remove");
-
 function edit() {
-
+    event.srcElement.parentElement.innerHTML = `<input type="text" class="ToDo_name1" value= "${event.srcElement.previousElementSibling.innerHTML}"></input><i class="fa-solid fa-floppy-disk" onclick="save()"></i><i class="fa-regular fa-square-check icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can icons remove" onclick="removeParent()"></i>`;
 }
 function checkMark() {
     event.srcElement.previousElementSibling.previousElementSibling.style.textDecorationLine = "line-through"
 }
-// function remove() {
-//     let delete;
-//     for (let l = 0; l < list_lists.length; l++) {
-//         delete =
-//         if ()
-
-//     }
-// }
 function removeParent() {
     event.srcElement.parentElement.remove();
+}
+function save() {
+    event.srcElement.parentElement.innerHTML = `<div  class="ToDo_name">${event.srcElement.previousElementSibling.value}</div><i class="fa-solid fa-pen icons" onclick="edit()"></i><i class="fa-regular fa-square-check icons" onclick="checkMark()"></i><i class="fa-solid fa-trash-can icons remove" onclick="removeParent()"></i>`;
 }
 
