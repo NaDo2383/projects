@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function gengrid() {
+            var i = 0;
+            var num_stud = 8;
+            var newdiv;
+            var divIdName;
+            for (i = 1; i <= num_stud; i++) {
+                newdiv = document.createElement('div');
+                divIdName = '50' + i;
+                newdiv.setAttribute('id', divIdName);
+                newdiv.innerHTML = '<div id="box' + i + '">Testing 123</div>';
+                document.body.appendChild(newdiv);
+            }
+        }
+        window.onload = function () {
+            gengrid();
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 680px;
+    text-align: center;
+}
+
+#header_date_and_ltasks {
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+}
+
+#header_task_input {
+    width: 80%;
+    height: 5vh;
+    border-bottom: 2px orange solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: rgb(232, 212, 177);
+    padding-left: 20px;
+    outline: none;
+}
+
+#header_task_button {
+    height: 5vh;
+    border-bottom: 2px orange solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: orange;
+}
+
+#list_h1 {
+    border-bottom: 3px solid black;
+}
