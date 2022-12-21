@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    max-width: 600 px;
+    text-align: center;
+}
+
+#firstName,
+#lastName,
+#gender,
+#score,
+button {
+    outline: none;
+    border: 2px solid gray;
+    height: 30px;
+    margin-top: 10px;
+    padding: 5px;
+    margin-bottom: 30px;
+    max-width: 600 px;
+}
+
+.tablefirstname,
+.tablelastname,
+.tablegender,
+.tablescore,
+.tablebutton {
+    border: 1px solid grey;
+    margin-bottom: 10px;
+}
+
+.tablefirstname,
+.tablelastname {
+    width: 25%;
+}
+
+.tablegender,
+.tablescore,
+.tablebutton {
+    width: 12.5%;
+}
+
+#table {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    ;
+}
