@@ -2,7 +2,7 @@ let input = document.querySelector("#input");
 let table = document.querySelector("#table");
 
 
-input.innerHTML = `<input id="firstName" placeholder="Enter first name"></input><input id="lastName" placeholder="Enter last name"></input><select id="gender"><option>Male</option><option>Female</option></select><input type="number" id="score" placeholder="Enter score"></input><button onclick="addElToArray()">Enter</button>`;
+input.innerHTML = `<input id="firstName" placeholder="Enter first name"></input><input id="lastName" placeholder="Enter last name"></input><select id="gender"><option>Male</option><option>Female</option></select><input type="number" id="score" placeholder="Enter score"></input><button onclick="addElToArray(event)">Enter</button>`;
 
 
 let array = [];
@@ -12,7 +12,9 @@ let score = document.querySelector("#score");
 let gender = document.querySelector("#gender");
 
 
-function addElToArray() {
+function addElToArray(event) {
+    event.preventDefault();
+
     if (firstName.value.length == 0 || lastName.value.length == 0 || score.value.length == 0 || gender.value.length == 0) {
         alert("Fill all field pls");
     } else {
@@ -22,9 +24,9 @@ function addElToArray() {
         firstName.value = "";
         lastName.value = "";
         score.value = "";
-        event.preventDefault();
+        // event.preventDefault();
     }
-    event.preventDefault();
+
 }
 
 function addElToTable() {
@@ -41,15 +43,20 @@ function addElToTable() {
         <div class="tablelastname">${array[i].lastname}</div>
         <div class="tablegender">${array[i].gender}</div>
         <div class="tablescore">${array[i].score}</div>
-        <span class="tablebutton" id="removeBtn" >Remove</span>
-        <span class="tablebutton" id="addScoreBtn" >+5 score</span>
+        <span class="tablebutton" id="removeBtn" onclick="deleteEle(${i})" >Remove</span>
+        <span class="tablebutton" id="addScoreBtn" onclick="addScore(${i})" >+5 score</span>
         </div>`
     }
 
-    // let rmvBtn = document.querySelector("#removeBtn");
-    // rmvBtn.addEventListener("click", function () {
-    //     event.srcElement.parentElement.remove();
-    // })
-
     table.innerHTML = row;
+}
+
+function deleteEle(id) {
+    array.splice(id, 1);
+    addElToTable();
+}
+
+function addScore(id) {
+    array[id].score = Number(array[id].score) + 5;
+    addElToTable();
 }
