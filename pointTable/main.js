@@ -31,10 +31,10 @@ function addElToArray(event) {
 
 function addElToTable() {
     let row = `<div style="display:flex">
-    <div class="tablefirstname">firstname</div>
-    <div class="tablelastname">lastname</div>
-    <div class="tablegender">gender</div>
-    <div class="tablescore">score</div>
+    <div class="tablefirstname">FirstName</div>
+    <div class="tablelastname">LastName</div>
+    <div class="tablegender">Gender</div>
+    <div class="tablescore">Score</div>
     </div>`;
 
     for (let i = 0; i < array.length; i++) {
