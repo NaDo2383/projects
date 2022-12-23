@@ -1,0 +1,16 @@
+#container {
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+}
+
+.sub {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
